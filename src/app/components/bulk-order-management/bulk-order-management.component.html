@@ -1,0 +1,25 @@
+<div class="bulk-order-management">
+    <h2>Bulk Order Management</h2>
+    <form [formGroup]="bulkOrderForm" (ngSubmit)="onSubmit()">
+      <div formArrayName="orders">
+        <div *ngFor="let order of orders.controls; let i = index" [formGroupName]="i">
+          <label>
+            Product ID:
+            <input formControlName="productId" />
+          </label>
+          <label>
+            Quantity:
+            <input formControlName="quantity" type="number" />
+          </label>
+          <label>
+            Price:
+            <input formControlName="price" type="number" />
+          </label>
+          <button type="button" (click)="removeOrder(i)">Remove</button>
+        </div>
+      </div>
+      <button type="button" (click)="addOrder()">Add Order</button>
+      <button type="submit" [disabled]="!bulkOrderForm.valid">Submit Orders</button>
+    </form>
+  </div>
+  

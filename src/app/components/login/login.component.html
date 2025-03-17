@@ -1,0 +1,34 @@
+<div class="login-wrapper">
+  <div class="login-card animate-card">
+    <h2 class="login-title">Welcome Back!</h2>
+    <form class="login-form" (ngSubmit)="onLogin()">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        [(ngModel)]="username"
+        name="username"
+        placeholder="Enter your username"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+      />
+
+      <label for="role">Role</label>
+      <select id="role" [(ngModel)]="role" name="role">
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+      </select>
+
+      <button type="submit" class="login-button">Login</button>
+    </form>
+  </div>
+</div>

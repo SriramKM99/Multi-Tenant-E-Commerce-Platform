@@ -1,0 +1,17 @@
+.bulk-order-management {
+    margin: 20px;
+  }
+  
+  .bulk-order-management form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bulk-order-management label {
+    margin: 10px 0;
+  }
+  
+  .bulk-order-management button {
+    margin: 10px 0;
+  }
+  

@@ -1,0 +1,29 @@
+{
+  "localhost": {
+    "name": "Tenant 1",
+    "logo": "assets/logo1.png",
+    "theme": {
+      "primary": "#3498db",
+      "secondary": "#2ecc71"
+    },
+    "layout": "sidebar"
+  },
+  "retail": {
+    "name": "Tenant 2",
+    "logo": "assets/logo2.png",
+    "theme": {
+      "primary": "#e74c3c",
+      "secondary": "#f1c40f"
+    },
+    "layout": "topnav"
+  },
+  "default": {
+    "name": "Default Tenant",
+    "logo": "assets/default-logo.png",
+    "theme": {
+      "primary": "#666",
+      "secondary": "#999"
+    },
+    "layout": "side-nav"
+  }
+}

@@ -21,7 +21,7 @@ ngOnInit(): void {
     this.wholeSale = tenant === 'localhost';
     this.retail = tenant === 'retail';
   // Navigate to the appropriate route based on the tenant
-  if (tenant === 'localhost') {
+  if (tenant === 'wholesale') {
     this.router.navigate(['/bulk-order']); // Redirect to B2B Admin Features
   } else if (tenant === 'retail') {
     this.router.navigate(['/discount-management']); // Redirect to B2C Admin Features

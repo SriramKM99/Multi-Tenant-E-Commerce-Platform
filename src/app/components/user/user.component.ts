@@ -18,9 +18,9 @@ ngOnInit(): void {
   const tenant = this.tenantService.getTenantType();
 
   // Navigate to the appropriate route based on the tenant
-  if (tenant === 'multi-tenant-e-commerce-a8bdc') {
+  if (tenant === 'wholesale-store-4bdac') {
     this.router.navigate(['/bulk-pricing']); 
-  } else if (tenant === 'localhost') {
+  } else if (tenant === 'retail-store-3fbb0') {
     this.router.navigate(['/add-to-cart']); 
   } else {
     this.router.navigate(['/unauthorized']);

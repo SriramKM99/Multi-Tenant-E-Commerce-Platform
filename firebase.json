@@ -1,7 +1,6 @@
 {
   "hosting": {
     "public": "dist/my-new-project/browser",
-    "site": "wholesale-mystore",
     "ignore": [
       "firebase.json",
       "**/.*",

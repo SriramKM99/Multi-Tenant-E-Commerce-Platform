@@ -20,9 +20,9 @@ ngOnInit(): void {
   const tenant = this.tenantService.getTenantType();
   
   // Navigate to the appropriate route based on the tenant
-  if (tenant === 'multi-tenant-e-commerce-a8bdc') {
+  if (tenant === 'wholesale-store-4bdac') {
     this.router.navigate(['/bulk-order']); // Redirect to B2B Admin Features
-  } else if (tenant === 'localhost1') {
+  } else if (tenant === 'retail-store-3fbb0') {
     this.router.navigate(['/discount-management']); // Redirect to B2C Admin Features
   } else {
     this.router.navigate(['/unauthorized']); // Handle unknown tenant or error

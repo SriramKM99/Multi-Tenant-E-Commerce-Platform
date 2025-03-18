@@ -1,25 +1,28 @@
-<div class="bulk-order-management">
-    <h2>Bulk Order Management</h2>
-    <form [formGroup]="bulkOrderForm" (ngSubmit)="onSubmit()">
-      <div formArrayName="orders">
-        <div *ngFor="let order of orders.controls; let i = index" [formGroupName]="i">
-          <label>
-            Product ID:
-            <input formControlName="productId" />
-          </label>
-          <label>
-            Quantity:
-            <input formControlName="quantity" type="number" />
-          </label>
-          <label>
-            Price:
-            <input formControlName="price" type="number" />
-          </label>
-          <button type="button" (click)="removeOrder(i)">Remove</button>
+<div class="layout">
+    <!-- Side Navigation Bar -->
+    <nav class="side-nav">
+      <ul>
+        <li><a href="#bulk-orders" (click)="manageBulkOrders()">Manage Bulk Orders</a></li>
+        <li><a href="#supplier-reports" (click)="generateSupplierReports()">Generate Supplier Reports</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+      <button class="logout-button" (click)="logout()">Logout</button>
+    </nav>
+  
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="card-container">
+        <div class="card" (click)="manageBulkOrders()">
+          <h3>Manage Bulk Orders</h3>
+          <p>Effortlessly oversee large orders.</p>
+        </div>
+        <div class="card" (click)="generateSupplierReports()">
+          <h3>Generate Supplier Reports</h3>
+          <p>Access detailed insights on suppliers.</p>
         </div>
       </div>
-      <button type="button" (click)="addOrder()">Add Order</button>
-      <button type="submit" [disabled]="!bulkOrderForm.valid">Submit Orders</button>
-    </form>
+      <p class="status-message" *ngIf="statusMessage">{{ statusMessage }}</p>
+    </div>
   </div>
   

@@ -1,17 +1,112 @@
-.bulk-order-management {
-    margin: 20px;
+/* Overall layout */
+.layout {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(120deg, #84fab0, #8fd3f4);
+    font-family: Arial, sans-serif;
   }
   
-  .bulk-order-management form {
+  /* Side navigation bar */
+  .side-nav {
+    width: 250px;
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
   
-  .bulk-order-management label {
-    margin: 10px 0;
+  .side-nav ul {
+    list-style: none;
+    padding: 0;
   }
   
-  .bulk-order-management button {
-    margin: 10px 0;
+  .side-nav li {
+    margin: 20px 0;
+  }
+  
+  .side-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+  }
+  
+  .side-nav a:hover {
+    color: #FFD700; /* Gold hover effect */
+  }
+  
+  /* Logout button styling */
+  .logout-button {
+    margin-top: 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #ff3333;
+    transform: scale(1.05);
+  }
+  
+  /* Main content area */
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Card container */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Card styling */
+  .card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  h3 {
+    color: #333333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #555555;
+    font-size: 1em;
+  }
+  
+  /* Status message styling */
+  .status-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #FFD700;
+    font-style: italic;
   }
   

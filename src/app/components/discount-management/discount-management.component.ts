@@ -3,29 +3,25 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-to-cart.component',
+  selector: 'app-b2c-admin-features',
   imports: [NgIf], 
   template: `
     <div class="layout">
       <!-- Top Navigation Bar -->
       <nav class="top-nav">
-        <h1>B2C User Portal</h1>
+        <h1>B2C Admin Portal</h1>
         <button class="logout-button" (click)="logout()">Logout</button>
       </nav>
 
       <!-- Main Content Area -->
       <div class="card-container">
-        <div class="card" (click)="addToCart()">
-          <h3>Add to Cart</h3>
-          <p>Add items to your shopping cart.</p>
+        <div class="card" (click)="manageDiscounts()">
+          <h3>Manage Discounts</h3>
+          <p>Set up and manage discount offers for customers.</p>
         </div>
-        <div class="card" (click)="checkout()">
-          <h3>Checkout</h3>
-          <p>Proceed to checkout securely.</p>
-        </div>
-        <div class="card" (click)="addToWishlist()">
-          <h3>Add to Wishlist</h3>
-          <p>Save items for later purchase.</p>
+        <div class="card" (click)="viewCustomerAnalytics()">
+          <h3>View Customer Analytics</h3>
+          <p>Analyze customer behavior and trends.</p>
         </div>
       </div>
 
@@ -122,33 +118,24 @@ import { Router } from '@angular/router';
     }
   `]
 })
-export class AddToCartComponent {
+export class DiscountManagementComponent {
   statusMessage: string = '';
   constructor(private router: Router){}
-  // Simulate adding an item to the cart
-  addToCart() {
-    this.statusMessage = 'Adding item to cart...';
+  // Simulate managing discounts
+  manageDiscounts() {
+    this.statusMessage = 'Managing discounts...';
     setTimeout(() => {
-      this.statusMessage = 'Item added to cart successfully!';
-      console.log('Item added to cart.');
+      this.statusMessage = 'Discounts updated successfully!';
+      console.log('Discounts updated successfully.');
     }, 2000);
   }
 
-  // Simulate checkout process
-  checkout() {
-    this.statusMessage = 'Processing checkout...';
+  // Simulate viewing customer analytics
+  viewCustomerAnalytics() {
+    this.statusMessage = 'Fetching customer analytics...';
     setTimeout(() => {
-      this.statusMessage = 'Checkout completed successfully!';
-      console.log('Checkout process complete.');
-    }, 2000);
-  }
-
-  // Simulate adding an item to the wishlist
-  addToWishlist() {
-    this.statusMessage = 'Adding item to wishlist...';
-    setTimeout(() => {
-      this.statusMessage = 'Item added to wishlist successfully!';
-      console.log('Item added to wishlist.');
+      this.statusMessage = 'Customer analytics loaded successfully!';
+      console.log('Customer analytics data fetched.');
     }, 2000);
   }
 

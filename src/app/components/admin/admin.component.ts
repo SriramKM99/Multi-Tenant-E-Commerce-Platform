@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
-  imports: [NgIf],
+  imports: [],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
@@ -18,10 +18,9 @@ export class AdminComponent implements OnInit {
 
 ngOnInit(): void {
   const tenant = this.tenantService.getTenantType();
-    this.wholeSale = tenant === 'localhost';
-    this.retail = tenant === 'retail';
+  
   // Navigate to the appropriate route based on the tenant
-  if (tenant === 'localhost') {
+  if (tenant === 'wholesale') {
     this.router.navigate(['/bulk-order']); // Redirect to B2B Admin Features
   } else if (tenant === 'retail') {
     this.router.navigate(['/discount-management']); // Redirect to B2C Admin Features

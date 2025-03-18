@@ -3,7 +3,7 @@ import { TenantService } from '../../services/tenant.service';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-login',
@@ -13,15 +13,22 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class LoginComponent implements OnInit {
   tenant: any;
-  username: string = '';
-  password: string = '';
-
-  constructor(private tenantService: TenantService, private authService: AuthService,private router: Router) {}
-  loginForm = new FormGroup({
-    username: new FormControl('', Validators.required), // ✅ Ensure it's never null
-    password: new FormControl('', Validators.required)  // ✅ Ensure it's never null
-  });
+  loginForm: FormGroup;
   role = 'User';
+
+  constructor(
+    private tenantService: TenantService,
+    private authService: AuthService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required, Validators.pattern(/^\S.*$/)]],
+      password: ['', [Validators.required, Validators.pattern(/^\S.*$/)]],
+      role: ['User', Validators.required]
+    });
+  }
+
   ngOnInit() {
     this.tenantService.loadTenantConfig().subscribe(config => {
       this.tenant = config;
@@ -29,21 +36,20 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    // if (this.loginForm.valid) {
-    //   const credentials = {
-    //     username: this.loginForm.get('username')?.value ?? '', // ✅ Ensure string
-    //     password: this.loginForm.get('password')?.value ?? ''  // ✅ Ensure string
-    //   };
-    //   this.authService.login(credentials);
-    // } else {
-    //   alert('Please enter username and password');
-    // }
-  
-  this.authService.login(this.role as 'Admin' | 'User', this.tenant); // Mock login function
-  if (this.role === 'Admin') {
-    this.router.navigate(['/admin']);
-  } else {
-    this.router.navigate(['/user']);
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const { username, password, role } = this.loginForm.value;
+
+    this.authService.login(role, this.tenant);
+
+    if (role === 'Admin') {
+      this.router.navigate(['/admin']);
+    } else {
+      this.router.navigate(['/user']);
+    }
   }
-}
 }

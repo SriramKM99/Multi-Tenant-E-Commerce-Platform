@@ -1,83 +1,40 @@
-// import { NgFor } from '@angular/common';
-// import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-
-// @Component({
-//   selector: 'app-bulk-order-management',
-//   templateUrl: './bulk-order-management.component.html',
-//   styleUrls: ['./bulk-order-management.component.css'],
-//   imports:[NgFor,FormsModule,ReactiveFormsModule]
-// })
-// export class BulkOrderManagementComponent implements OnInit {
-//   bulkOrderForm!: FormGroup;
-
-//   constructor(private fb: FormBuilder) {}
-
-//   ngOnInit() {
-//     this.bulkOrderForm = this.fb.group({
-//       orders: this.fb.array([this.createOrderGroup()])
-//     });
-//   }
-
-//   get orders(): FormArray {
-//     return this.bulkOrderForm.get('orders') as FormArray;
-//   }
-
-//   createOrderGroup(): FormGroup {
-//     return this.fb.group({
-//       productId: ['', Validators.required],
-//       quantity: [1, [Validators.required, Validators.min(1)]],
-//       price: [0, [Validators.required, Validators.min(0)]]
-//     });
-//   }
-
-//   addOrder() {
-//     this.orders.push(this.createOrderGroup());
-//   }
-
-//   removeOrder(index: number) {
-//     this.orders.removeAt(index);
-//   }
-
-//   onSubmit() {
-//     if (this.bulkOrderForm.valid) {
-//       const bulkOrders = this.bulkOrderForm.value.orders;
-//       // Process bulk orders (e.g., send to backend service)
-//       console.log('Bulk Orders:', bulkOrders);
-//     }
-//   }
-// }
-
-
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-b2b-admin-features',
-  template: `
-    <div class="b2b-admin">
-      <h2>B2B Admin Features</h2>
-      <button (click)="manageBulkOrders()">Manage Bulk Orders</button>
-      <button (click)="generateSupplierReports()">Generate Supplier Reports</button>
-    </div>
-  `,
-  styles: [`
-    .b2b-admin {
-      background-color: #2a2a2a; /* Dark Theme */
-      color: white;
-      padding: 16px;
-      border-radius: 8px;
-    }
-    button {
-      margin: 8px;
-    }
-  `]
+  selector: 'bulk-order',
+  templateUrl: './bulk-order-management.component.html',
+  styleUrls: ['./bulk-order-management.component.css'],
+  imports: [NgIf], 
+
 })
 export class BulkOrderManagementComponent {
+  statusMessage: string = '';
+  constructor(private router: Router){}
+
+  // Simulate managing bulk orders
   manageBulkOrders() {
-    console.log('Bulk orders managed!');
+    this.statusMessage = 'Processing bulk orders...';
+    setTimeout(() => {
+      this.statusMessage = 'Bulk orders successfully managed!';
+      console.log('Bulk orders processed: 42 orders updated.');
+    }, 2000); // Simulates a delay for processing
   }
 
+  // Simulate generating supplier reports
   generateSupplierReports() {
-    console.log('Supplier reports generated!');
+    this.statusMessage = 'Generating supplier reports...';
+    setTimeout(() => {
+      this.statusMessage = 'Supplier reports generated successfully!';
+      console.log('Supplier report summary: 12 active suppliers, 3 flagged for review.');
+    }, 2000); // Simulates a delay for generation
+  }
+
+  // Simulate logout functionality
+  logout() {
+    this.statusMessage = 'Logging out...';
+    this.router.navigate(['/login'])
+    alert('You have successfully logged out!');
   }
 }

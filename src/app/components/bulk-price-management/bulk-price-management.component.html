@@ -1,27 +1,22 @@
-<div class="bulk-pricing-management">
-    <p-table [value]="products" dataKey="id" editMode="row" class="p-datatable-gridlines">
-      <ng-template pTemplate="header">
-        <tr>
-          <th pSortableColumn="name">Product Name <p-sortIcon field="name"></p-sortIcon></th>
-          <th pSortableColumn="bulkPrice">Bulk Price <p-sortIcon field="bulkPrice"></p-sortIcon></th>
-          <th>Actions</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-product let-editing="editing">
-        <tr [pEditableRow]="product">
-          <td>
-            <p-cellEditor>
-              <ng-template pTemplate="input">
-                <input pInputText [(ngModel)]="product.name" />
-              </ng-template>
-              <ng-template pTemplate="output">
-                {{ product.name }}
-              </ng-template>
-            </p-cellEditor>
-          </td>
-          <td>
-            <p-cellEditor>
-              <ng-template pTemplate="input">
-                <input pInputText type="number" [(ngModel)]="product.bulkPrice" />
-   
+<div class="layout">
+    <!-- Side Navigation Bar -->
+    <nav class="side-nav">
+      <ul>
+        <li><a href="#bulk-pricing" (click)="viewBulkPricing()">View Bulk Pricing</a></li>
+        <li><a href="#order-quantities" (click)="orderLargeQuantities()">Order Large Quantities</a></li>
+        <li><a href="#reports" (click)="generateReports()">Generate Reports</a></li>
+        <li><a href="#settings" (click)="navigateToSettings()">Settings</a></li>
+      </ul>
+      <button class="logout-button" (click)="logout()">Logout</button>
+    </nav>
+  
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="card" (click)="viewBulkPricing()">
+        <h3>View Bulk Pricing</h3>
+        <p>Check detailed bulk prices for products tailored to your needs.</p>
+      </div>
+      <p class="status-message" *ngIf="statusMessage">{{ statusMessage }}</p>
+    </div>
+  </div>
   

@@ -93,7 +93,11 @@
     color: #555555;
     font-size: 1em;
   }
-  
+  .header{
+    color: #f1e8e8;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
   /* Status message styling */
   .status-message {
     text-align: center;

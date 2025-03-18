@@ -64,6 +64,11 @@
     justify-content: center;
     align-items: center;
   }
+  .header{
+    color: #f1e8e8;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
   
   /* Card container */
   .card-container {

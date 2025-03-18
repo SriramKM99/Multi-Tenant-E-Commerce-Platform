@@ -14,8 +14,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 export class LoginComponent implements OnInit {
   tenant: any;
   loginForm: FormGroup;
-  role = 'User';
-
+  value:any
   constructor(
     private tenantService: TenantService,
     private authService: AuthService,
@@ -41,8 +40,7 @@ export class LoginComponent implements OnInit {
       alert('Please fill in all required fields.');
       return;
     }
-
-    const { username, password, role } = this.loginForm.value;
+    else{const { username, password, role } = this.loginForm.value;
 
     this.authService.login(role, this.tenant);
 
@@ -50,6 +48,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/admin']);
     } else {
       this.router.navigate(['/user']);
-    }
+    }}
+
+    
   }
 }

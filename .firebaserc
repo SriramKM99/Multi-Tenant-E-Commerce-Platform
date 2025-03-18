@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "multi-tenant-e-commerce-a8bdc"
-  }
+  },
+  "targets": {
+    "multi-tenant-e-commerce-a8bdc": {
+      "hosting": {
+        "wholesale": [
+          "wholesale-mystore"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

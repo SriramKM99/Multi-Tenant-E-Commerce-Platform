@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
     <div class="layout">
       <!-- Top Navigation Bar -->
       <nav class="top-nav">
-        <h1>B2C User Portal</h1>
+        <h1>Retail User Portal</h1>
         <button class="logout-button" (click)="logout()">Logout</button>
       </nav>
 

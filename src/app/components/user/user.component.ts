@@ -18,12 +18,12 @@ ngOnInit(): void {
   const tenant = this.tenantService.getTenantType();
 
   // Navigate to the appropriate route based on the tenant
-  if (tenant === 'wholesale') {
-    this.router.navigate(['/bulk-pricing']); // Redirect to B2B Admin Features
-  } else if (tenant === 'retail') {
-    this.router.navigate(['/add-to-cart']); // Redirect to B2C Admin Features
+  if (tenant === 'multi-tenant-e-commerce-a8bdc') {
+    this.router.navigate(['/bulk-pricing']); 
+  } else if (tenant === 'localhost') {
+    this.router.navigate(['/add-to-cart']); 
   } else {
-    this.router.navigate(['/unauthorized']); // Handle unknown tenant or error
+    this.router.navigate(['/unauthorized']);
   }
 }
 }
